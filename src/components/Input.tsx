@@ -23,7 +23,12 @@ const Input: React.FC<Props> = ({ icon, placeholder, type, name, register }) => 
         />
       )}
       <input
-        {...register(name as keyof Inputs)} // Utilisez le nom en tant que clé de l'interface Inputs
+        {...register(name as keyof Inputs, {required: true, minLength: 3, maxLength: 30, ...(type === "email" && {
+          pattern: {
+            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+            message: 'Email invalide .',
+          }
+        })})} // Utilisez le nom en tant que clé de l'interface Inputs
         style={{ outline: 'none' }}
         type={type}
         placeholder={placeholder}
