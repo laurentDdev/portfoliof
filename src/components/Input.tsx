@@ -8,7 +8,7 @@ type Props = {
   placeholder: string;
   type: string;
   name: string;
-  register: UseFormRegister<Inputs>;
+  register: UseFormRegister<any>;
 };
 
 const Input: React.FC<Props> = ({ icon, placeholder, type, name, register }) => {

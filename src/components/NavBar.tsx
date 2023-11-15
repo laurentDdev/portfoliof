@@ -1,8 +1,10 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 import { animated, useSpring } from "@react-spring/web";
 
 const NavBar = () => {
+
+  const location = useLocation();
 
   const springs = useSpring({
     from: { bottom: -100 },
@@ -16,7 +18,9 @@ const NavBar = () => {
         position: "fixed",
         left: "50%",
         transform: "translateX(-50%)",
-        ...springs
+        display: location.pathname !== '/admin' ? "block" : "none",
+        ...springs,
+
       }}
     >
       <ul className="flex justify-between">

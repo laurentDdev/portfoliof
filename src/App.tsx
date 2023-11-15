@@ -1,12 +1,14 @@
 import "./App.css";
 import Layout from "./Layout/Layout";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import ThemeProvider from "./context/ThemeProvider";
 import NavBar from "./components/NavBar";
 
 function App() {
   const [theme, setTheme] = useState("");
+  
+  
 
   useEffect(() => {
     
